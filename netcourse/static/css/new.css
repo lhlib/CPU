@@ -1,0 +1,129 @@
+@keyframes bounce-down {
+  25% {
+    transform: translateY(-4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.newHead {
+  width: 100%;
+  height: 768px;
+  background: url(../image/banner.png) no-repeat;
+  background-size: cover;
+}
+.newHead .top {
+  width: 100%;
+  height: 128px;
+}
+.newHead .top .inner {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+.newHead .top .box {
+  width: 1200px;
+  height: 128px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.newHead .top .box .logo img {
+  height: 70px;
+}
+.newHead .top .nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+.newHead .top .nav ul {
+  display: flex;
+}
+.newHead .top .nav ul li a {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 20px;
+  color: #ffffff;
+}
+.newHead .top .nav .tel {
+  color: #fff;
+  font-size: 20px;
+}
+.newHead .top .nav .tel img {
+  padding: 0 8px;
+  position: relative;
+  top: -1px;
+}
+.newHead .top-fixed {
+  width: 100%;
+  height: 72px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  background: #fff;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.newHead .top-fixed .inner,
+.newHead .top-fixed .box {
+  height: 72px;
+}
+.newHead .top-fixed .box .logo img {
+  height: 50px;
+}
+.newHead .top-fixed .nav ul li {
+  padding: 0 10px;
+}
+.newHead .top-fixed .nav ul li a {
+  color: #000;
+  padding: 23px 10px 21px;
+}
+.newHead .top-fixed .nav ul li a:hover {
+  color: #0098e8;
+  border-bottom: 3px solid #0098e8;
+}
+.newHead .top-fixed .nav ul li .active {
+  color: #0098e8;
+  border-bottom: 3px solid #0098e8;
+}
+.newHead .top-fixed .nav .tel {
+  color: #000;
+}
+.newHead .text {
+  text-align: center;
+  color: #fff;
+  padding-top: 168px;
+}
+.newHead .text .btn {
+  width: 150px;
+  padding: 10px 0px;
+  border-radius: 6px;
+  border: solid 1px #ffac04;
+  background: #ffac04;
+  font-size: 20px;
+  margin: 0 auto;
+}
+.newHead .text .title {
+  font-size: 48px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  margin-top: 24px;
+}
+.newHead .text .desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.newHead .mouse {
+  text-align: center;
+  color: #fff;
+  padding-top: 230px;
+  animation: bounce-down 1.2s infinite;
+}
