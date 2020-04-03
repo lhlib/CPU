@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- meta data -->
+		<meta charset="utf-8">
+		<link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<!-- title of site -->
+		<title>注册</title>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/jquerysession.js"></script>
+		<script type="text/javascript" src="static/js/common.js"></script>
+		<!-- For favicon png -->
+		<link rel="shortcut icon" type="image/icon" href="/login/assets/logo/favicon.png" />
+
+		<!--font-awesome.min.css-->
+		<link rel="stylesheet" href="static/css/login/font-awesome.min.css">
+
+		<!--animate.css-->
+		<link rel="stylesheet" href="static/css/login/animate.css">
+
+		<!--bootstrap.min.css-->
+		<link rel="stylesheet" href="static/css/login/bootstrap.min.css">
+
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="static/css/login/bootsnav.css">
+
+		<!--style.css-->
+		<link rel="stylesheet" href="static/css/login/style.css">
+		<link rel="stylesheet" href="static/css/verify.css	">
+		<link href='static/css/tab/progression.css' rel='stylesheet' type='text/css'>
+		<link href='static/css/tab/style.css' rel='stylesheet' type='text/css'>
+		<link href='static/css/tab/reset-min.css' rel='stylesheet' type='text/css'>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+	</head>
+
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+		<!-- signin end -->
+		<section class="signin signup popup-in popup-up">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="single-sign">
+							<div class="sign-content popup-in-content">
+								<div class="popup-in-txt">
+									<div class="logo flt">
+						<a href="index.html"><img style="width: 200px;" src="static/picture/16.png"></a>
+					</div>
+									<h2 style="padding-top: 20px;">注册</h2>
+
+									<div class="signin-form">
+										<form action="signin.html">
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<label for="signin_form">账号</label>
+														<input type="text" class="form-control" id="account" name="account" placeholder="请输入3-8位包含字母和数字的账号">
+													</div>
+													<!--/.form-group -->
+												</div>
+												<!--/.col -->
+
+											</div>
+											<!--/.row -->
+
+											<div class="form-group">
+												<label for="signin_form">密码</label>
+												<input type="password" class="form-control" id="password" placeholder="请输入6-10位包含字母和数字的密码">
+											</div>
+											<div class="form-group">
+												<label for="signin_form">确认密码</label>
+												<input type="password" class="form-control" id="password1" placeholder="再次输入密码">
+											</div>
+											<!--/.form-group -->
+											<div class="form-group">
+												<label for="signin_form">姓名</label>
+												<input type="text" class="form-control" id="name" placeholder="请输入2-4位的中文真实姓名">
+											</div>
+											<!--/.form-group -->
+											<!--<div class="form-group">
+												<label for="signin_form">昵称</label>
+												<input type="text" class="form-control" id="n_name" placeholder="输入昵称">
+											</div>-->
+											<!--/.form-group -->
+											<div class="form-group">
+												<label for="signin_form">手机号</label>
+												<input type="text" class="form-control" id="phone" placeholder="请输入手机号">
+											</div>
+											<!--/.form-group -->
+											<!--<div class="form-group">
+												<label for="signin_form">邮箱</label>
+												<input type="email" class="form-control" id="email" placeholder="输入邮箱">
+											</div>-->
+											<div class="form-group">
+												<div>
+													<label for="signin_form">选择所在区域和学校</label>
+												</div>
+
+												<div class="col-sm-4" style="padding-left: 0px;">
+													<select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict')" class="form-control "></select>&nbsp;&nbsp;</div>
+												<div class="col-sm-4">
+													<select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict')" class="form-control"></select>&nbsp;&nbsp;;</div>
+												<div class="col-sm-4">
+													<span id="seachdistrict_div"><select id="seachdistrict" name="seachdistrict"  onChange="changeXQ(this.value,'seachschool','seachschool')"  class="form-control"></select></span></div>
+												<!--<div class="col-sm-3">
+													<span id="seachschool_div"><select id="seachschool" name="seachschool" class="form-control"  ><option>请选择</option></select></span></div>-->
+
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="form-group">
+														<div>
+															<label for="signin_form">学校和班级</label></div>
+														<div class="col-sm-6" style="padding-left: 0px;">
+															<input type="text" class="form-control " id="school" placeholder="输入学校名称"></div>
+														<div class="col-sm-6"><input type="text" class="form-control" id="className" placeholder="输入班级名称"></div>
+													</div>
+												</div>
+											</div>
+											<!--/.form-group -->
+
+										</form>
+										<!--/form -->
+									</div>
+									<div class="form-group">
+										<div id="mpanel2" style="top: 50px;">
+										</div>
+									</div>
+									<!--/.signin-form -->
+									<div class="signin-footer" style="padding-top:50px">
+										<button type="button" id="signinButton" class="btn signin_btn" data-toggle="modal" data-target=".signin_modal">
+											注册
+										</button>
+										<p>
+											已有注册 ?
+											<a href="popupsignin.html" style="color: #1890ff;">去登录</a>
+										</p>
+									</div>
+
+									<!--/.signin-footer -->
+								</div>
+								<!--/.popup-in-txt -->
+							</div>
+							<!--/.sign-content -->
+						</div>
+						<!--/.single-sign -->
+					</div>
+					<!--/.col -->
+				</div>
+				<!--/.row-->
+			</div>
+			<!--/.container -->
+		</section>
+		<!--/.signin -->
+
+		<!-- signin end -->
+
+		<!--footer copyright start -->
+
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script type="text/javascript" src="static/js/verify.js"></script>
+
+		<!--Custom JS-->
+		<script src="static/js/login/custom.js"></script>
+		<script src="static/js/area.js" type="text/javascript"></script>
+		<script src="static/js/areaData_min.js" type="text/javascript"></script>
+		<script src="static/js/areaindex.js" type="text/javascript"></script>
+		<script src="static/js/modal_dialog.js" type="text/javascript"></script>
+		<script type="text/javascript" src="static/js/tab/js.js"></script>
+<script type="text/javascript" src="static/js/tab/tabulous.js"></script>
+		<script type="text/javascript">
+			/*			滑动验证*/
+
+			$(function() {
+				$("#signinButton").click(function() {
+
+					var areaID = $("#seachdistrict").val(); //获取地区码
+					var areaName = getAreaNamebyID(areaID); //获取地区名
+					/*获取学校编号*/
+					/*var schoolid = $("#seachschool").val();*/
+					/*获取学校名称*/
+					var schoolName = $("#school").val();
+					/*班级名称*/
+					var className=$("#className").val();
+					var account = $('#account').val();
+					var passWord = $('#password').val();
+					var passWord1 = $('#password1').val();
+					var name = $('#name').val();
+					var phone = $('#phone').val();
+					if(accountYz(account) == false) {
+						alert("请输入3-8位包含字母和数字的账号！");
+						return;
+					}
+					if(passwordYz(passWord) == false) {
+						alert("请输入6-10位包含字母和数字的密码！");
+						return;
+					}
+					if(passWord != passWord1) {
+						alert("两次输入密码不一致！");
+						return;
+					}
+					if(nameYz(name) == false) {
+						alert("请输入2-4位的中文姓名！");
+						return;
+					}
+					if(phoneYz(phone) == false) {
+						alert("请输入正确的手机号码！");
+						return;
+					}
+					if(areaID == 0) {
+						alert("请完整完整区域信息！");
+						return;
+					}
+					if(schoolName==""){
+						alert("请输入学校名称！");
+						return;
+					}
+					if(className==""){
+						alert("请输入班级名称！");
+						return;
+					}
+					$("#signinButton").attr({
+						"disabled": "disabled"
+					});
+					alert('拉倒图片，滑动验证！');
+
+					$('#mpanel2').slideVerify({
+						type: 2, //类型
+						vOffset: 5, //误差量，根据需求自行调整
+						vSpace: 5, //间隔
+						imgName: ['1.jpg', '2.jpg'],
+						imgSize: {
+							width: '400px',
+							height: '200px',
+						},
+						blockSize: {
+							width: '40px',
+							height: '40px',
+						},
+						barSize: {
+							width: '400px',
+							height: '40px',
+						},
+						ready: function() {},
+						success: function() {
+
+							$.ajax({
+								url: requestUrl + '/blade-user/font/userSubmit', //地址
+								dataType: 'json', //数据类型
+								data: {
+									account: account,
+									password: passWord,
+									areacode: areaID,
+									areaname: areaName,
+									schoolcode: 0,
+									schoolname: schoolName,
+									classname:className,
+									roleId: "1123598816738675203",
+									name: name,
+									phone: phone
+								},
+								type: 'post', //类型
+								timeout: 2000, //超时
+								//请求成功
+								success: function(data, status) {
+
+									console.log(data);
+									window.location.href = "popupsignin.html";
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									alert(XMLHttpRequest.responseJSON.msg);
+									window.location.reload();
+								}
+							})
+						},
+						error: function() {
+							alert('验证失败！');
+						}
+
+					});
+
+				});
+			});
+
+			function message(msg) {
+				//alert(msg);
+				$modal({
+					type: 'message', //弹框类型  'alert' or  'confirm' or 'message'  message提示(开启之前如果之前含有弹框则清除)
+					icon: 'info', // 提示图标显示 'info' or 'success' or 'warning' or 'error'  or 'question'
+					timeout: 2000, // 单位 ms  显示多少毫秒后关闭弹框 （ confirm 下无效 | 不传默认为 2000ms | 最短显示时间为500ms） 
+					content: '人间值得', // 提示文字 
+					center: false, // 是否绝对居中 默认为false  设置true后   top无效
+					top: 100, //距离顶部距离 单位px
+					transition: 300, //过渡动画 默认 200   单位ms
+					closable: true, // 是否显示可关闭按钮  默认为 false
+				})
+			}
+
+			function accountYz(val) {
+				if(val != "") {
+					if(val.length >= 3 && val.length <= 8) {
+						var p = /[0-9]/;
+						var p1 = /[a-z]/i;
+						if(p.test(val) && p1.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+
+			function passwordYz(val) {
+				if(val != "") {
+					if(val.length >= 6 && val.length <= 10) {
+						var p = /[0-9]/;
+						var p1 = /[a-z]/i;
+						if(p.test(val) && p1.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*中文姓名验证*/
+			function nameYz(val) {
+				if(val != "") {
+					if(val.length >= 2 && val.length <= 4) {
+						var p = /^[\u4E00-\u9FA5]{2,4}$/;
+						if(p.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*手机号码验证*/
+			function phoneYz(val) {
+				if(val != "") {
+					var re = /^1\d{10}$/
+					if(re.test(val)) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>

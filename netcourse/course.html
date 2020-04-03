@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--[if lt IE 9]>
+    <script type="text/javascript" src="static/js/html5.js"></script>
+    <![endif]-->
+		<meta charset="utf-8">
+		<link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+		<meta name="renderer" content="webkit" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<title>CPU知识云</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/vue_2.5.13.js"></script>
+		<script type="text/javascript" src="static/js/jquerysession.js"></script>
+		<script type="text/javascript" src="static/js/jquery.params.js"></script>
+		<script type="text/javascript" src="static/js/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="static/css/animate.css">
+		<link rel="stylesheet" type="text/css" href="static/css/global.css">
+		<link rel="stylesheet" type="text/css" href="static/css/style.css">
+		<link rel="stylesheet" type="text/css" href="static/css/owl.carousel.min.css">
+		<script type="text/javascript" src="static/js/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/js/main.js"></script>
+		<script>
+			$(function() {
+
+			})
+		</script>
+	</head>
+
+	<body >
+		<!-------------------------------------- 头部开始 -------------------------------------->
+		<div id="all">
+		<div class="header">
+			<div class="head" id="head">
+				<div class="wrap"> <span>欢迎访问CPU知识云，联合网络数字图书馆视频知识库！</span>
+					<div class="frt">
+						<ul>
+							<li>
+								<a href="popupsignin.html" v-if="!userinfo.nick_name"><span>登录</span></a>
+								<a href="#" v-if="userinfo.nick_name" v-text="userinfo.nick_name"><span></span></a>
+
+							</li>
+							<li>
+								<a href="popupsignin.html?p=1" v-if="!userinfo.nick_name"><span>注册</span></a>
+								<a href="coursecenter.html" v-if="userinfo.nick_name"><span>个人中心</span></a>
+
+							</li>
+							<li>
+
+								<a href="#" onclick="layout()" v-if="userinfo.nick_name"><span>退出</span></a>
+
+							</li>
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="head2">
+				<div class="wrap logoBox">
+					<div class="logo flt">
+						<a href="index.html"><img style="height: 70px;" src="static/picture/16.png"></a>
+					</div>
+					<div class="frt tel">
+						<h3>cpuzsy@126.com
+</h3>
+						<p style="text-align: center;">24小时在线服务邮箱</p>
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="wrap">
+					<ul>
+						<li >
+							<a href="index.html">首页
+								<label></label>
+							</a>
+						</li>
+
+						<li class='on'>
+							<a href="course.html">直击中考·
+								<label style="font-size:10px;">学生版</label>
+							</a>
+						</li>
+						<li>
+							<a href="courseT.html">直击中考·
+								<label style="font-size:10px;">教师版</label>
+							</a>
+						</li>
+						<li>
+							<a href="courseZ.html">直击中考·
+								<label style="font-size:10px;">试题版</label>
+							</a>
+						</li>
+						<li>
+						<li>
+							<a href="news.html">直击中考 ·
+								<label style="font-size:10px;">快讯</label>
+							</a>
+						</li>
+					</li>
+					</ul>
+				</div>
+				<div class="menu_wrap"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<!-------------------------------------- 头部结束 -------------------------------------->
+		<!-------------------------------------- 内容开始 -------------------------------------->
+		<!--class="animated fast" data-animation="fadeInDown"-->
+		<div class="mainer" id="coursezx">
+			<div class="page_list">
+				<div class="page page3">
+					<div class="wrap">
+						<div class="page_dqwz">
+							<p><span>您现在所在位置：</span>
+								<a href='index.html'>主页</a> /
+								<a href=''>直击中考·学生</a> / </p>
+						</div>
+						<div class="course_tit"> <span class="flt">讲座：</span>
+							<ul>
+								<li>
+									<a @click="getData('语文')">语文</a>
+								</li>
+								<li>
+									<a @click="getData('数学')">数学</a>
+								</li>
+								<li>
+									<a @click="getData('英语')">英语</a>
+								</li>
+								<li>
+									<a @click="getData('物理')">物理</a>
+								</li>
+								<li>
+									<a @click="getData('化学')">化学</a>
+								</li>
+								<li>
+									<a @click="getData('历史')">历史</a>
+								</li>
+								<li>
+									<a @click="getData('道德与法治')">道德与法治</a>
+								</li>
+							</ul>
+						</div>
+						<div class="course_item" style="width: 75%;">
+							<ul>
+								<li v-for="(course, idx) in list" :key="idx"  >
+									<a v-bind:href="course.id|getTitleHref">
+										<div class="img"> <img :src="course.image" height="120px">
+											<div class="text">
+												<p> {{course.yhlx}} / {{course.fjlx}}/ {{course.qtlx}} /
+												</p>
+											</div>
+										</div>
+									</a>
+									<div class="web">
+										<h4><a href="javascript:;" v-text="course.name">课程名称</a></h4>
+										<p>{{course.djnum}}人 学习<span v-text="course.jsname">admin</span></p>
+									</div>
+								</li>
+							</ul>
+							<div class="clear"></div>
+							<div class="pagination-wrapper">
+								<div class="pagination">
+									<li><span class="pageinfo">共 <strong>1</strong>页</span></li>
+								</div>
+							</div>
+						</div>
+						<div class="course_hot">
+							<div class="course_hot_box">
+								<div class="tit">
+									<h3>热门推荐</h3>
+								</div>
+								<div class="course_item">
+									<ul>
+										<li v-for="(Tcourse, idx) in Tlist.slice(0, 2)">
+											<a v-bind:href="Tcourse.id|getTitleHref">
+												<div class="img"> <img :src="Tcourse.image"> </div>
+											</a>
+											<div class="web">
+												<h4><a href="javascript:;" v-text="Tcourse.name">课程名称</a></h4>
+												<p>{{Tcourse.djnum}}人 学习<span v-text="Tcourse.jsname">admin</span></p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="ht100"></div>
+				<div class="page">
+					<img src="static/picture/bottomBg.jpg" style="width: 100%;"/>
+				</div>
+			</div>
+		</div>
+		<!-------------------------------------- 内容结束 -------------------------------------->
+		<!-------------------------------------- 尾部开始 -------------------------------------->
+		<div class="footer">
+			<div class="foot2">
+				<p>Copyright &copy;2020 山西图联科技信息有限公司 版权所有  备案号：晋ICP备12002112号-1</p>
+			</div>
+		</div>
+		<!-------------------------------------- 尾部结束 -------------------------------------->
+
+		<script>
+			$(function() {
+				var userInfo = {};
+				userInfo.nike_name = "";
+				if($.session.get('user') != undefined) {
+					userInfo = JSON.parse($.session.get('user'));
+				}
+				var qtlx;/*其他类型*/
+				if($.getUrlParam('lx')!=null){
+					qtlx=escape($.getUrlParam('lx'));
+					console.log(escape(qtlx));
+				}
+				var vm = new Vue({
+					el: '#all',
+					data: {
+						userinfo: {},
+						list: [],
+						Tlist: [],
+					},
+					created: function() {
+						this.getLM();
+					},
+					methods: {
+						getLM: function() {
+							this.userinfo = userInfo;
+							$.ajax({
+								url: requestUrl+'/blade-cms/font/categoryList', //地址
+								data: {
+									siteId: "1",
+									yhlx:"学生",
+									qtlx:qtlx
+								},
+								dataType: 'json', //数据类型
+								type: 'GET', //类型
+								timeout: 5000, //超时
+								//请求成功
+								success: function(data, status) {
+									vm.list = data.data;
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									if(textStatus === 'timeout') {
+										console.log("请求超时");
+									}
+								}
+							})
+							$.ajax({
+								url: requestUrl+'/blade-cms/font/categoryList', //地址
+								data: {
+									siteId: "1",
+									inMenu:"1",
+									
+								},
+								dataType: 'json', //数据类型
+								type: 'GET', //类型
+								timeout: 5000, //超时
+								//请求成功
+								success: function(data, status) {
+									vm.Tlist = data.data;
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									if(textStatus === 'timeout') {
+										console.log("请求超时");
+									}
+								}
+							})
+						},
+						getData:function(param){
+								$.ajax({
+								url: requestUrl+'/blade-cms/font/categoryList', //地址
+								data: {
+									siteId: "1",
+									yhlx:"学生",
+									qtlx:param
+								},
+								dataType: 'json', //数据类型
+								type: 'GET', //类型
+								timeout: 5000, //超时
+								//请求成功
+								success: function(data, status) {
+									vm.list = data.data;
+								},
+								headers: {
+									'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+								},
+								error: function(XMLHttpRequest, textStatus, errorThrown) {
+									if(textStatus === 'timeout') {
+										console.log("请求超时");
+									}
+								}
+							})
+						}
+					},
+					filters: {
+						getTitleHref: function(val) {
+							return 'detail.html?id=' + val
+						},
+						getData: function(val) {
+							
+						}
+					}
+				});
+			});
+		</script>
+		</div>
+	</body>
+
+</html>

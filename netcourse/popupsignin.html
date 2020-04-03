@@ -1,0 +1,609 @@
+<!doctype html>
+<html >
+
+	<head>
+		<!-- meta data -->
+		<meta charset="utf-8">
+		<link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+		<meta name="renderer" content="webkit" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<!-- title of site -->
+		<title>CPU知识云</title>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/jquerysession.js"></script>
+		<script type="text/javascript" src="static/js/common.js"></script>
+		<script type="text/javascript" src="static/js/jquery.params.js"></script>
+		<link rel="shortcut icon" type="image/icon" href="" />
+		<link rel="stylesheet" href="static/css/login/font-awesome.min.css">
+		<link rel="stylesheet" href="static/css/login/animate.css">
+		<link rel="stylesheet" href="static/css/login/bootstrap.min.css">
+		<link rel="stylesheet" href="static/css/login/bootsnav.css">
+		<link rel="stylesheet" href="static/css/login/style.css">
+		<link rel="stylesheet" href="static/css/login/responsive.css">
+		<link rel="stylesheet" href="static/css/upload/index.css">
+		<link rel="stylesheet" href="static/css/verify.css	">
+
+	</head>
+
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		<!-- signin end -->
+		<section class="signin popup-in" style="padding-top: 120px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="single-sign">
+							<div class="sign-content popup-in-content" style="padding: 21px 20px 40px;">
+								<div class="logo flt text-center">
+									<a href="index.html"><img style="height: 60px;" src="static/picture/16.png"></a>
+								</div>
+								<!--nav nav-tabs nav-pills-->
+								<ul class="tagtext clearfix popup-in-txt" role="tablist" style="padding-top: 20px;">
+									<li role="presentation" class="active" id="dl">
+										<a href="#home" role="tab" data-toggle="tab">登录</a>
+									</li>
+									<li role="presentation" id="zc">
+										<a href="#profile" role="tab" data-toggle="tab">注册</a>
+									</li>
+								</ul>
+								<!-- 面板区 -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="home">
+										<div class="popup-in-txt" style="padding-top: 30px;">
+											<div class="signin-form">
+												<div class=" ">
+													<div class=" ">
+														<form id="myForm">
+															<div class="form-group">
+																<label for="signin_form">账号</label>
+																<input type="text" id="username" name="username1" class="form-control"  placeholder="输入账号">
+															</div>
+															<!--/.form-group -->
+															<div class="form-group">
+																<label for="signin_form">密码</label>
+																<input type="password" id="passwordl" name="passwordl" class="form-control"  placeholder="输入密码">
+															</div>
+															<div id="tishi" style="text-align: center;color: red;display: none;"></div>
+															<!--/.form-group -->
+														</form>
+														<!--/form -->
+													</div>
+													<!--/.col -->
+												</div>
+												<!--/.row -->
+
+											</div>
+											
+											<!--/.signin-form -->
+											<div class="signin-password">
+												<div class="awesome-checkbox-list">
+													<ul class="unstyled centered">
+														<li class="left">
+															<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2">
+															<label for="styled-checkbox-2">记住密码</label>
+														</li>
+														<li class="marright"><a  href="forgetPwd.html" >忘记密码？</a></li>
+													</ul>
+												</div>
+												<!--/.awesome-checkbox-list -->
+											</div>
+											<!--/.signin-password -->
+											<div class="signin-footer">
+												<button id="loginButton" type="button" class="btn signin_btn">
+										登录
+										</button>
+												<p>
+													没有账号?
+													<a href="popupsignin.html?p=1" style="color: #1890ff;">去注册</a>
+												</p>
+											</div>
+											<!--/.signin-footer -->
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="profile">
+										<div class="popup-in-txt" style="padding-top: 30px;">
+
+											<div class="signin-form">
+												<form action="signin.html">
+													<div class="form-group">
+														<div>
+															<label for="signin_form">选择用户类型</label>
+														</div>
+														<select id="role" name="role" onChange="setSchoolClass(this.value)" class="form-control ">
+															<option value="1123598816738675203">学生</option>
+															<option value="1197346887271714817">教师</option>
+														</select>
+													</div>
+													<div class="form-group">
+														<label for="signin_form">手机号</label>
+														<input type="text" class="form-control" id="phone" placeholder="请输入手机号">
+													</div>
+<div class="form-group clearfix">
+														<div><label for="signin_form">验证码</label></div>
+														<div class="col-sm-9 col-xs-12" style="padding-left: 0px;padding-right: 0px;">
+															<input type="text" class="form-control" id="vscode" placeholder="请输入验证码">
+														</div>
+														<!--<div class=" btn col-sm-3 left" style="padding-right: 0px;padding-left: 0px;text-align: right;">-->
+															<div class="btn m-t-15" onclick="sendCode()" style="padding: 6px 12px;background: #1890ff;color:#fff;border-radius: 6px;min-width: 95px;margin-left: 5px;" id="smsCode">获取验证码</div>
+														<!--</div>-->
+													</div>
+													
+													<!--/.row -->
+
+													<div class="form-group">
+														<label for="signin_form">密码</label>
+														<input type="password" class="form-control" id="password" placeholder="请输入6-10位包含字母和数字的密码">
+													</div>
+													<div class="form-group">
+														<label for="signin_form">确认密码</label>
+														<input type="password" class="form-control" id="password1" placeholder="再次输入密码">
+													</div>
+													<!--/.form-group -->
+													<div class="form-group">
+														<label for="signin_form">姓名</label>
+														<input type="text" class="form-control" id="name" placeholder="请输入2-4位的中文真实姓名">
+													</div>
+<div class="row">
+														<div class="col-sm-12">
+													<div class="form-group">
+														<div>
+															<label for="signin_form">选择所在区域和学校</label>
+														</div>
+
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
+															<select id="seachprov" name="seachprov" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict')" class="form-control "></select>&nbsp;&nbsp;</div>
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
+															<select id="seachcity" name="homecity" onChange="changeCity(this.value,'seachdistrict','seachdistrict')" class="form-control"></select>&nbsp;&nbsp;</div>
+														<div class="col-sm-4 col-xs-12" style="padding-left: 0px;">
+															<span id="seachdistrict_div"><select id="seachdistrict" name="seachdistrict"  onChange="changeXQ(this.value,'seachschool','seachschool')"  class="form-control"></select></span></div>
+
+													</div></div></div>
+									
+															<div class="form-group"  id="schoolclass">
+																<div>
+																	<label for="signin_form">学校和班级</label></div>
+																<div class="col-sm-6 col-xs-12" style="padding-left: 0px;margin-bottom: 15px;">
+																	<input type="text" class="form-control " id="school" placeholder="输入学校名称"></div>
+																<div class="col-sm-6 col-xs-12" style="padding-left: 0px;">
+																	<input type="text" class="form-control" id="className" placeholder="输入班级名称"></div>
+															</div>
+													
+													
+													<div class="row" id="teacherIf">
+														<div class="col-sm-12">
+															<div class="form-group">
+																<div>
+																	<label for="signin_form">上传教师资格证</label></div>
+																<p>
+																	<div class="upload imgLog3">
+																		<span>上传教师资格证</span>
+																	</div>
+																</p>
+															</div>
+														</div>
+													</div>
+												</form>
+												<!--/form -->
+											</div>
+											<!--/.signin-form -->
+											<div class="signin-footer" style="padding-top:20px">
+												<button type="button" id="signinButton" onclick="zc()" class="btn signin_btn" data-toggle="modal" data-target=".signin_modal">
+											注册
+										</button>
+												<p>
+													已有注册 ?
+													<a href="popupsignin.html" style="color: #1890ff;">去登录</a>
+												</p>
+											</div>
+
+											<!--/.signin-footer -->
+										</div>
+									</div>
+								</div>
+
+								<!--/.popup-in-txt -->
+							</div>
+							<!--/.sign-content -->
+						</div>
+						<!--/.single-sign -->
+					</div>
+					<!--/.col -->
+				</div>
+				<!--/.row-->
+			</div>
+			<!--/.container -->
+		</section>
+		<!--/.signin -->
+		<!--bootstrap.min.js-->
+		<script src="static/js/login/bootstrap.min.js"></script>
+
+		<!-- bootsnav js -->
+		<script src="static/js/login/bootsnav.js"></script>
+
+		<!-- jquery.sticky.js -->
+		<script src="static/js/login/jquery.sticky.js"></script>
+		<script src="static/js/area.js" type="text/javascript"></script>
+		<script src="static/js/areaData_min.js" type="text/javascript"></script>
+		<script src="static/js/areaindex.js" type="text/javascript"></script>
+		<!--Custom JS-->
+		<script src="static/js/login/custom.js"></script>
+		<script src="static/js/upload/index.js"></script>
+		<script type="text/javascript" src="static/js/verify.js"></script>
+		<script type="text/javascript">
+			/*资格证图片*/
+			var zgzImg = "";
+			/*状态码*/
+			var status = "1";
+			$(function() {
+				$("#loginButton").click(function() {
+					if($("#username").val()==""||$("#passwordl").val()==""){
+						alert("请填写完整信息！");
+						return;
+					}
+					$.ajax({
+						url: requestUrl + '/blade-auth/oauth/token?tenantId=000000&grant_type=password&scope=all&type=account&username=' + $("#username").val() + '&password=' + $("#passwordl").val(), //地址
+						dataType: 'json', //数据类型
+						type: 'post', //类型
+						timeout: 5000, //超时
+						//请求成功
+						success: function(data, status) {
+							$.session.set('user', JSON.stringify(data));
+							var userinfo = JSON.parse($.session.get('user'));
+							var forward = document.referrer;
+							if(forward.indexOf('popupsignin') > -1) {
+							
+								window.location.href = "index.html";
+							} else {
+								window.location.href = forward;
+							}
+						},
+						headers: {
+							'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							if(errorThrown === 'Unauthorized') {
+								console.log('没有权限');
+							}else{
+								$("#tishi").text("登录失败，请检查用户名和密码");
+								$("#tishi").show();
+							}
+						}
+					})
+					/*注册部分*/
+					$("#signinButton").click(function() {
+
+					});
+				});
+				
+				/*上传资格证*/
+				var img3 = new ImgUpload('.imgLog3', 500, 300, 300);
+				$(document).on('change', ".imgLog3 input", function(e) {
+					/*console.log(e.target.files[0]);*/
+					var formData = new FormData();
+					formData.append("file", e.target.files[0]);
+					var imgthis = $(this);
+					/*上传图片方法*/
+					$.ajax({
+						url: requestUrl + '/blade-cms/exefile/put-file', //地址
+						dataType: 'json', //数据类型
+						data: formData,
+						type: 'post', //类型
+						timeout: 5000, //超时
+						processData: false, // 使数据不做处理
+						contentType: false, // 不要设置Content-Type请求头
+						//请求成功
+						success: function(data, status) {
+							//var url = window.URL.createObjectURL(e.target.files[0]);
+							var url = data.data.link;
+							/*							console.log(url);*/
+							zgzImg = url;
+							imgthis.parent().css('background', 'url(' + url + ')0% 0% / cover')
+							img3.setSpan(this)
+						},
+						headers: {
+							'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							if(errorThrown === 'Unauthorized') {
+								console.log('没有权限');
+							}
+						}
+					})
+
+				})
+			});
+
+			function accountYz(val) {
+				if(val != "") {
+					if(val.length >= 3 && val.length <= 8) {
+						var p = /[0-9]/;
+						var p1 = /[a-z]/i;
+						if(p.test(val) && p1.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+
+			function passwordYz(val) {
+				if(val != "") {
+					if(val.length >= 6 && val.length <= 10) {
+						var p = /[0-9]/;
+						var p1 = /[a-z]/i;
+						if(p.test(val) && p1.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*中文姓名验证*/
+			function nameYz(val) {
+				if(val != "") {
+					if(val.length >= 2 && val.length <= 4) {
+						var p = /^[\u4E00-\u9FA5]{2,4}$/;
+						if(p.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*手机号码验证*/
+			function phoneYz(val) {
+				if(val != "") {
+					var re = /^1\d{10}$/
+					if(re.test(val)) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*上传资格证隐藏*/
+			$("#teacherIf").hide();
+			/*学生和学校*/
+			function setSchoolClass(val) {
+				if(val == 1197346887271714817) {
+					$("#schoolclass").hide();
+					$("#teacherIf").show();
+				} else {
+					$("#schoolclass").show();
+					$("#teacherIf").hide();
+				}
+			}
+
+			function zc() {
+
+				/*alert(1);*/
+				var areaID = $("#seachdistrict").val(); //获取地区码
+				var areaName = getAreaNamebyID(areaID); //获取地区名
+				/*获取学校编号*/
+				/*var schoolid = $("#seachschool").val();*/
+				/*获取学校名称*/
+				var schoolName = $("#school").val();
+				/*班级名称*/
+				var className = $("#className").val();
+				/*注册类型*/
+				var role = $("#role").val();
+				var vscode = $('#vscode').val();
+				var passWord = $('#password').val();
+				var passWord1 = $('#password1').val();
+				var name = $('#name').val();
+				var phone = $('#phone').val();
+				if(phoneYz(phone) == false) {
+					alert("请输入正确的手机号码！");
+					return;
+				}
+				if(passwordYz(passWord) == false) {
+					alert("请输入6-10位包含字母和数字的密码！");
+					return;
+				}
+				if(passWord != passWord1) {
+					alert("两次输入密码不一致！");
+					return;
+				}
+				if(nameYz(name) == false) {
+					alert("请输入2-4位的中文姓名！");
+					return;
+				}
+				if(areaID == 0) {
+					alert("请完整完整区域信息！");
+					return;
+				}
+				if(role == 1197346887271714817) {
+					status = 2;
+					if(zgzImg == "") {
+						alert("请上传教师资格证！");
+						return;
+					}
+				} else {
+					if(schoolName == "") {
+						alert("请输入学校名称！");
+						return;
+					}
+					if(className == "") {
+						alert("请输入班级名称！");
+						return;
+					}
+				}
+				if(vscode==""){
+					alert("请输入验证码！");
+					return;
+				}else{
+					if(vscode!=smsCodeyz){
+					alert("验证码失败！");
+					return;
+					}
+				}
+				$("#signinButton").attr({
+					"disabled": "disabled"
+				});
+			/*	alert('拉倒图片，滑动验证！');*/
+					
+			/*	$('#mpanel2').slideVerify({
+					type: 2, //类型
+					vOffset: 5, //误差量，根据需求自行调整
+					vSpace: 5, //间隔
+					imgName: ['1.jpg', '2.jpg'],
+					imgSize: {
+						width: '400px',
+						height: '200px',
+					},
+					blockSize: {
+						width: '40px',
+						height: '40px',
+					},
+					barSize: {
+						width: '400px',
+						height: '40px',
+					},
+					ready: function() {},
+					success: function() {*/
+
+						$.ajax({
+							url: requestUrl + '/blade-user/font/userSubmit', //地址
+							dataType: 'json', //数据类型
+							data: {
+								account: phone,
+								password: passWord,
+								areacode: areaID,
+								areaname: areaName,
+								schoolcode: 0,
+								schoolname: schoolName,
+								classname: className,
+								roleId: role,
+								isDeleted: 1,
+								name: name,
+								phone: phone,
+								status: status,
+								zgzimg: zgzImg,
+								deptId:'1123598813738675202'
+							},
+							type: 'post', //类型
+							timeout: 5000, //超时
+							//请求成功
+							success: function(data, status) {
+								console.log(data);
+								window.location.href = "popupsignin.html";
+							},
+							headers: {
+								'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								alert(XMLHttpRequest.responseJSON.msg);
+								window.location.reload();
+							}
+						})
+					/*},
+					error: function() {
+						alert('验证失败！');
+					}
+				});*/
+			}
+			if($.getUrlParam('p') != null) {
+				$("#zc").addClass("active");
+				$("#profile").addClass("active");
+				$("#dl").removeClass("active");
+				$("#home").removeClass("active");
+			}
+
+			/*function sendCode() {
+				$("#smsCode").attr("disabled", "disabled");
+				$("#smsCode").text("60");
+			}*/
+			var smsCodeyz = "";
+
+			function sendCode() { //这是主方法，这里调用读秒即可
+				var mobile = $('#phone').val();
+				/*console.log(mobile);*/
+				var myreg = /^1\d{10}$/;
+				if(!myreg.test(mobile)) {
+					alert('请输入正确国内手机号！');
+					return false;
+				}
+				smsCodeyz = MathRand();
+				/*发送短信接口*/
+				$.ajax({
+					url: requestUrl + '/blade-cms/font/sms', //地址
+					data: {
+						type: "ZC",
+						phone: mobile,
+						code: smsCodeyz
+					},
+					dataType: 'json', //数据类型
+					type: 'GET', //类型
+					timeout: 5000, //超时
+					//请求成功
+					success: function(data, status) {
+						if(data.data.Code == "OK") {
+							alert("发送成功！");
+							$("#smsCode").attr("disabled", "disabled");
+							$('#smsCode').css("pointer-events", "none")
+							editvfput(60);
+						}else{
+							alert("不能频繁发送！");
+						}
+					},
+					headers: {
+						'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if(textStatus === 'timeout') {
+							console.log("请求超时");
+						}
+					}
+				})
+
+			}
+
+			//读秒
+			function editvfput(count) {
+				var down = setInterval(CountDown, 1000); //每秒执行一次，赋值
+				function CountDown() {
+					$('#smsCode').text('剩余 ' + count + ' 秒'); //写入
+					if(count == 0) {
+						$("#smsCode").attr("disabled", false);
+						$('#smsCode').css("pointer-events", "auto")
+						$('#smsCode').text('重新获取');
+						clearInterval(down); //销毁计时器
+						return;
+					}
+					count--;
+				}
+			}
+			/*随机生成6位数字*/
+			function MathRand() {
+				var Num = "";
+				for(var i = 0; i < 6; i++) {
+					Num += Math.floor(Math.random() * 10) % 9 + 1;
+				}
+				return Num;
+			}
+		</script>
+	</body>
+
+</html>

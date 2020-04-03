@@ -1,0 +1,315 @@
+<!doctype html>
+<html >
+
+	<head>
+		<!-- meta data -->
+		<meta charset="utf-8">
+		<link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+		<meta name="renderer" content="webkit" /> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<!-- title of site -->
+		<title>CPU知识云</title>
+		<script type="text/javascript" src="static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="static/js/jquerysession.js"></script>
+		<script type="text/javascript" src="static/js/common.js"></script>
+		<script type="text/javascript" src="static/js/jquery.params.js"></script>
+		<link rel="shortcut icon" type="image/icon" href="" />
+		<link rel="stylesheet" href="static/css/login/font-awesome.min.css">
+		<link rel="stylesheet" href="static/css/login/animate.css">
+		<link rel="stylesheet" href="static/css/login/bootstrap.min.css">
+		<link rel="stylesheet" href="static/css/login/bootsnav.css">
+		<link rel="stylesheet" href="static/css/login/style.css">
+		<link rel="stylesheet" href="static/css/login/responsive.css">
+		<link rel="stylesheet" href="static/css/upload/index.css">
+		<link rel="stylesheet" href="static/css/verify.css	">
+
+	</head>
+
+	<body>
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+		<!-- signin end -->
+		<section class="signin popup-in" style="padding-top: 120px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="single-sign">
+							<div class="sign-content popup-in-content" style="padding: 21px 20px 40px;">
+								<div class="logo flt text-center">
+									<a href="index.html"><img style="height: 60px;" src="static/picture/16.png"></a>
+								</div>
+								<!--nav nav-tabs nav-pills-->
+								<ul class="tagtext clearfix popup-in-txt" role="tablist" style="padding-top: 20px;">
+									<li role="presentation" class="active" id="dl">
+										<a href="#home" role="tab" data-toggle="tab">找回密码</a>
+									</li>
+								</ul>
+								<!-- 面板区 -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="home">
+										<div class="popup-in-txt" style="padding-top: 30px;">
+
+											<div class="signin-form">
+												<form action="signin.html">
+													<div class="form-group">
+														<label for="signin_form">手机号</label>
+														<input type="text" class="form-control" id="phone" placeholder="请输入手机号">
+													</div>
+<div class="form-group clearfix">
+														<div><label for="signin_form">验证码</label></div>
+														<div class="col-sm-9 col-xs-12" style="padding-left: 0px;padding-right: 0px;">
+															<input type="text" class="form-control" id="vscode" placeholder="请输入验证码">
+														</div>
+														<!--<div class=" btn col-sm-3 left" style="padding-right: 0px;padding-left: 0px;text-align: right;">-->
+															<div class="btn m-t-15" onclick="sendCode()" style="padding: 6px 12px;background: #1890ff;color:#fff;border-radius: 6px;min-width: 95px;margin-left: 5px;" id="smsCode">获取验证码</div>
+														<!--</div>-->
+													</div>
+													
+													<!--/.row -->
+
+													<div class="form-group">
+														<label for="signin_form">新密码</label>
+														<input type="password" class="form-control" id="password" placeholder="请输入6-10位包含字母和数字的密码">
+													</div>
+													<div class="form-group">
+														<label for="signin_form">确认密码</label>
+														<input type="password" class="form-control" id="password1" placeholder="再次输入密码">
+													</div>
+												</form>
+												<!--/form -->
+											</div>
+											<!--/.signin-form -->
+											<div class="signin-footer" style="padding-top:20px">
+												<button type="button" id="signinButton" onclick="zc()" class="btn signin_btn" data-toggle="modal" data-target=".signin_modal">
+											提交
+										</button>
+												<p>
+													没有账号 ?
+													<a href="popupsignin.html?p=1" style="color: #1890ff;">去注册</a>
+												</p>
+											</div>
+
+											<!--/.signin-footer -->
+										</div>
+									</div>
+								</div>
+
+								<!--/.popup-in-txt -->
+							</div>
+							<!--/.sign-content -->
+						</div>
+						<!--/.single-sign -->
+					</div>
+					<!--/.col -->
+				</div>
+				<!--/.row-->
+			</div>
+			<!--/.container -->
+		</section>
+		<!--/.signin -->
+		<!--bootstrap.min.js-->
+		<script src="static/js/login/bootstrap.min.js"></script>
+
+		<!-- bootsnav js -->
+		<script src="static/js/login/bootsnav.js"></script>
+
+		<!-- jquery.sticky.js -->
+		<script src="static/js/login/jquery.sticky.js"></script>
+		<!--Custom JS-->
+		<script src="static/js/login/custom.js"></script>
+		<script src="static/js/upload/index.js"></script>
+		<script type="text/javascript" src="static/js/verify.js"></script>
+		<script type="text/javascript">
+			function passwordYz(val) {
+				if(val != "") {
+					if(val.length >= 6 && val.length <= 10) {
+						var p = /[0-9]/;
+						var p1 = /[a-z]/i;
+						if(p.test(val) && p1.test(val)) {
+							return true;
+						} else {
+							return false;
+						}
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			/*手机号码验证*/
+			function phoneYz(val) {
+				if(val != "") {
+					var re = /^1\d{10}$/
+					if(re.test(val)) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+
+			function zc() {
+
+
+
+				/*注册类型*/
+				var phone = $('#phone').val();
+				var vscode = $('#vscode').val();
+				var passWord = $('#password').val();
+				var passWord1 = $('#password1').val();
+				if(phoneYz(phone) == false) {
+					alert("请输入正确的手机号码！");
+					return;
+				}
+				if(passwordYz(passWord) == false) {
+					alert("请输入6-10位包含字母和数字的密码！");
+					return;
+				}
+				if(passWord != passWord1) {
+					alert("两次输入密码不一致！");
+					return;
+				}
+				if(vscode==""){
+					alert("请输入验证码！");
+					return;
+				}else{
+					if(vscode!=smsCodeyz){
+					alert("验证码校验失败！");
+					return;
+					}
+				}
+				$("#signinButton").attr({
+					"disabled": "disabled"
+				});
+			/*	alert('拉倒图片，滑动验证！');*/
+					
+			/*	$('#mpanel2').slideVerify({
+					type: 2, //类型
+					vOffset: 5, //误差量，根据需求自行调整
+					vSpace: 5, //间隔
+					imgName: ['1.jpg', '2.jpg'],
+					imgSize: {
+						width: '400px',
+						height: '200px',
+					},
+					blockSize: {
+						width: '40px',
+						height: '40px',
+					},
+					barSize: {
+						width: '400px',
+						height: '40px',
+					},
+					ready: function() {},
+					success: function() {*/
+
+						/**此处添加找回密码接口**/
+						/*$.ajax({
+							url: requestUrl + '/blade-user/font/userSubmit', //地址
+							dataType: 'json', //数据类型
+							data: {
+								account: phone,
+								password: passWord,
+								isDeleted: 1,
+								phone: phone
+							},
+							type: 'post', //类型
+							timeout: 5000, //超时
+							//请求成功
+							success: function(data) {
+								console.log(data);
+								window.location.href = "popupsignin.html";
+							},
+							headers: {
+								'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								alert(XMLHttpRequest.responseJSON.msg);
+								window.location.reload();
+							}
+						})*/
+						/**此处添加找回密码接口**/
+						
+					/*},
+					error: function() {
+						alert('验证失败！');
+					}
+				});*/
+			}
+			var smsCodeyz = "";
+
+			function sendCode() { //这是主方法，这里调用读秒即可
+				var mobile = $('#phone').val();
+				var myreg = /^1\d{10}$/;
+				if(!myreg.test(mobile)) {
+					alert('请输入正确国内手机号！');
+					return false;
+				}
+				smsCodeyz = MathRand();
+				/*发送短信接口*/
+				$.ajax({
+					url: requestUrl + '/blade-cms/font/sms', //地址
+					data: {
+						type: "ZC",
+						phone: mobile,
+						code: smsCodeyz
+					},
+					dataType: 'json', //数据类型
+					type: 'GET', //类型
+					timeout: 5000, //超时
+					//请求成功
+					success: function(data) {
+						if(data.data.Code == "OK") {
+							alert("发送成功！");
+							$("#smsCode").attr("disabled", "disabled");
+							$('#smsCode').css("pointer-events", "none")
+							editvfput(60);
+						}else{
+							alert("不能频繁发送！");
+						}
+					},
+					headers: {
+						'Authorization': 'Basic c2FiZXI6c2FiZXJfc2VjcmV0'
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						if(textStatus === 'timeout') {
+							console.log("请求超时");
+						}
+					}
+				})
+
+			}
+			//读秒
+			function editvfput(count) {
+				var down = setInterval(CountDown, 1000); //每秒执行一次，赋值
+				function CountDown() {
+					$('#smsCode').text('剩余 ' + count + ' 秒'); //写入
+					if(count == 0) {
+						$("#smsCode").attr("disabled", false);
+						$('#smsCode').css("pointer-events", "auto")
+						$('#smsCode').text('重新获取');
+						clearInterval(down); //销毁计时器
+						return;
+					}
+					count--;
+				}
+			}
+			/*随机生成6位数字*/
+			function MathRand() {
+				var Num = "";
+				for(var i = 0; i < 6; i++) {
+					Num += Math.floor(Math.random() * 10) % 9 + 1;
+				}
+				return Num;
+			}
+		</script>
+	</body>
+
+</html>
